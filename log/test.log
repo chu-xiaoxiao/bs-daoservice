@@ -1,0 +1,15 @@
+20:34:13.952 INFO  com.zyc.service.PaperService 47 createPaper - 抽取多选题成功
+20:34:13.965 INFO  com.zyc.service.PaperService 51 createPaper - 抽取单选题成功
+20:34:13.972 INFO  com.zyc.service.PaperService 55 createPaper - 抽取判断题成功
+20:34:13.980 INFO  com.zyc.service.PaperService 59 createPaper - 抽取编程题成功
+20:34:14.029 DEBUG com.zyc.service.PaperService 79 createPaper - 试卷题目关系入表试卷id62题目id72题目类型2题目分值3.1
+20:34:14.042 DEBUG com.zyc.service.PaperService 79 createPaper - 试卷题目关系入表试卷id62题目id74题目类型2题目分值3.1
+20:34:14.055 DEBUG com.zyc.service.PaperService 79 createPaper - 试卷题目关系入表试卷id62题目id77题目类型2题目分值3.1
+20:34:14.073 DEBUG com.zyc.service.PaperService 79 createPaper - 试卷题目关系入表试卷id62题目id82题目类型2题目分值3.1
+20:34:14.088 DEBUG com.zyc.service.PaperService 79 createPaper - 试卷题目关系入表试卷id62题目id85题目类型2题目分值3.1
+20:34:14.102 DEBUG com.zyc.service.PaperService 79 createPaper - 试卷题目关系入表试卷id62题目id87题目类型1题目分值5.2
+20:34:14.117 DEBUG com.zyc.service.PaperService 79 createPaper - 试卷题目关系入表试卷id62题目id88题目类型1题目分值5.2
+20:34:14.130 DEBUG com.zyc.service.PaperService 79 createPaper - 试卷题目关系入表试卷id62题目id92题目类型1题目分值5.2
+20:34:14.142 DEBUG com.zyc.service.PaperService 79 createPaper - 试卷题目关系入表试卷id62题目id75题目类型3题目分值1.3
+20:34:14.154 DEBUG com.zyc.service.PaperService 79 createPaper - 试卷题目关系入表试卷id62题目id83题目类型3题目分值1.3
+20:34:14.166 DEBUG com.zyc.service.PaperService 79 createPaper - 试卷题目关系入表试卷id62题目id94题目类型4题目分值20.9

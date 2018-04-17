@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zyc.mapper.PaperconfigMapper">
+  <resultMap id="BaseResultMap" type="com.zyc.model.Paperconfig">
+    <constructor>
+      <arg column="paperconfigid" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="papername" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="subjectid" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="scqnum" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="scqvalue" javaType="java.lang.Double" jdbcType="DOUBLE" />
+      <arg column="mcqnum" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="mcavalue" javaType="java.lang.Double" jdbcType="DOUBLE" />
+      <arg column="tfqnum" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="tfqvalue" javaType="java.lang.Double" jdbcType="DOUBLE" />
+      <arg column="pqnum" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="pqvalue" javaType="java.lang.Double" jdbcType="DOUBLE" />
+      <arg column="startdate" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="enddate" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    paperconfigid, papername, subjectid, scqnum, scqvalue, mcqnum, mcavalue, tfqnum, 
+    tfqvalue, pqnum, pqvalue, startdate, enddate
+  </sql>
+  <select id="selectByExample" parameterType="com.zyc.model.Example.PaperconfigExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from PaperConfig
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.zyc.model.Example.PaperconfigExample">
+    delete from PaperConfig
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insertSelective" parameterType="com.zyc.model.Paperconfig">
+    insert into PaperConfig
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="paperconfigid != null">
+        paperconfigid,
+      </if>
+      <if test="papername != null">
+        papername,
+      </if>
+      <if test="subjectid != null">
+        subjectid,
+      </if>
+      <if test="scqnum != null">
+        scqnum,
+      </if>
+      <if test="scqvalue != null">
+        scqvalue,
+      </if>
+      <if test="mcqnum != null">
+        mcqnum,
+      </if>
+      <if test="mcavalue != null">
+        mcavalue,
+      </if>
+      <if test="tfqnum != null">
+        tfqnum,
+      </if>
+      <if test="tfqvalue != null">
+        tfqvalue,
+      </if>
+      <if test="pqnum != null">
+        pqnum,
+      </if>
+      <if test="pqvalue != null">
+        pqvalue,
+      </if>
+      <if test="startdate != null">
+        startdate,
+      </if>
+      <if test="enddate != null">
+        enddate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="paperconfigid != null">
+        #{paperconfigid,jdbcType=INTEGER},
+      </if>
+      <if test="papername != null">
+        #{papername,jdbcType=VARCHAR},
+      </if>
+      <if test="subjectid != null">
+        #{subjectid,jdbcType=INTEGER},
+      </if>
+      <if test="scqnum != null">
+        #{scqnum,jdbcType=INTEGER},
+      </if>
+      <if test="scqvalue != null">
+        #{scqvalue,jdbcType=DOUBLE},
+      </if>
+      <if test="mcqnum != null">
+        #{mcqnum,jdbcType=INTEGER},
+      </if>
+      <if test="mcavalue != null">
+        #{mcavalue,jdbcType=DOUBLE},
+      </if>
+      <if test="tfqnum != null">
+        #{tfqnum,jdbcType=INTEGER},
+      </if>
+      <if test="tfqvalue != null">
+        #{tfqvalue,jdbcType=DOUBLE},
+      </if>
+      <if test="pqnum != null">
+        #{pqnum,jdbcType=INTEGER},
+      </if>
+      <if test="pqvalue != null">
+        #{pqvalue,jdbcType=DOUBLE},
+      </if>
+      <if test="startdate != null">
+        #{startdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enddate != null">
+        #{enddate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zyc.model.Example.PaperconfigExample" resultType="java.lang.Long">
+    select count(*) from PaperConfig
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update PaperConfig
+    <set>
+      <if test="record.paperconfigid != null">
+        paperconfigid = #{record.paperconfigid,jdbcType=INTEGER},
+      </if>
+      <if test="record.papername != null">
+        papername = #{record.papername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.subjectid != null">
+        subjectid = #{record.subjectid,jdbcType=INTEGER},
+      </if>
+      <if test="record.scqnum != null">
+        scqnum = #{record.scqnum,jdbcType=INTEGER},
+      </if>
+      <if test="record.scqvalue != null">
+        scqvalue = #{record.scqvalue,jdbcType=DOUBLE},
+      </if>
+      <if test="record.mcqnum != null">
+        mcqnum = #{record.mcqnum,jdbcType=INTEGER},
+      </if>
+      <if test="record.mcavalue != null">
+        mcavalue = #{record.mcavalue,jdbcType=DOUBLE},
+      </if>
+      <if test="record.tfqnum != null">
+        tfqnum = #{record.tfqnum,jdbcType=INTEGER},
+      </if>
+      <if test="record.tfqvalue != null">
+        tfqvalue = #{record.tfqvalue,jdbcType=DOUBLE},
+      </if>
+      <if test="record.pqnum != null">
+        pqnum = #{record.pqnum,jdbcType=INTEGER},
+      </if>
+      <if test="record.pqvalue != null">
+        pqvalue = #{record.pqvalue,jdbcType=DOUBLE},
+      </if>
+      <if test="record.startdate != null">
+        startdate = #{record.startdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.enddate != null">
+        enddate = #{record.enddate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update PaperConfig
+    set paperconfigid = #{record.paperconfigid,jdbcType=INTEGER},
+      papername = #{record.papername,jdbcType=VARCHAR},
+      subjectid = #{record.subjectid,jdbcType=INTEGER},
+      scqnum = #{record.scqnum,jdbcType=INTEGER},
+      scqvalue = #{record.scqvalue,jdbcType=DOUBLE},
+      mcqnum = #{record.mcqnum,jdbcType=INTEGER},
+      mcavalue = #{record.mcavalue,jdbcType=DOUBLE},
+      tfqnum = #{record.tfqnum,jdbcType=INTEGER},
+      tfqvalue = #{record.tfqvalue,jdbcType=DOUBLE},
+      pqnum = #{record.pqnum,jdbcType=INTEGER},
+      pqvalue = #{record.pqvalue,jdbcType=DOUBLE},
+      startdate = #{record.startdate,jdbcType=TIMESTAMP},
+      enddate = #{record.enddate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>
